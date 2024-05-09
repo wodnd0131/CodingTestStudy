@@ -10,22 +10,9 @@ class Solution {
             if(charArr[i]=='1'){
                 mode= mode==1? 0:1;
             }else{
-                ret+= mode==0&&i%2==0 ? charArr[i]:"";
-                ret+= mode==1&&i%2!=0 ? charArr[i]:"";
+                ret+= i%2==mode ? charArr[i]:"";
             }
         }
-        
-        for(char a:ret.toCharArray()){
-            char temp = ' ';
-            if(temp!=a){
-                answer+=a;
-                temp=a;
-            }
-            
-        }
-        if(answer.equals("")){
-            return "EMPTY";
-        }
-        return answer;
+        return ret.equals("") ? "EMPTY" : ret;
     }
 }
